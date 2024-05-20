@@ -13,7 +13,7 @@ def eval_onestep(pi, V, env, gamma=0.9):
 
         # (3) 各行動へアクセス
         for action, action_probs in action_probs.items():
-            next_state = env.next_step(state, action)
+            next_state = env.next_state(state, action)
             r = env.reward(state, action, next_state)
             # (4) 新しい価値関数
             new_V += action_probs * (r + gamma * V[next_state])
